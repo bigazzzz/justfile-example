@@ -1,7 +1,8 @@
 # https://just.systems/man/en/chapter_27.html
 # just $HOME/games/pwd
 
-!include another-justfiles/sub.just
+# include with --unstable flag
+# !include another-justfiles/sub.just
 set dotenv-load
 set export
 set positional-arguments
@@ -11,6 +12,16 @@ set shell := ["bash", "-uc"]
 justvar := "just var"
 path := env_var('PATH')
 kubeconfig := env_var_or_default('KUBECONFIG', '~/kubeconfig/mmtr_2022.kubeconfig')
+# onetwothree := ```
+#     echo 1
+#     echo 2
+#     echo 3
+
+# ```
+# numbers:
+#     echo "{{onetwothree}}"
+
+role := if env_var("USER") =~ '^bigaz{0,4}?$' { "master" } else { "slave" }
 
 [private]
 alias sys := system-info
@@ -28,6 +39,7 @@ fuck:
     -echo $NULLVAR
     echo $TESTVAR
     echo {{justvar}}
+    echo {{role}}
 
 system-info:
     @echo "This is an {{arch()}} machine on {{os_family()}}({{os()}})"
