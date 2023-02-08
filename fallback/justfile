@@ -1,0 +1,7 @@
+# use just --unstable pwd
+
+set fallback
+
+[private]
+default:
+    @echo "This justfile does not contain recipes"

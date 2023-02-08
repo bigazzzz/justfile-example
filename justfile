@@ -1,6 +1,7 @@
 # https://just.systems/man/en/chapter_27.html
 # just $HOME/games/pwd
 
+!include another-justfiles/sub.just
 set dotenv-load
 set export
 set positional-arguments
