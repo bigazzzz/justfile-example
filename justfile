@@ -58,3 +58,6 @@ where-justfile:
 
 git *args:
     @git {{args}}
+
+push:
+    @git add -A && git commit -m "update files" && git push
